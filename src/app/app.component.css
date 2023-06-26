@@ -1,0 +1,35 @@
+ul li {
+  list-style: none;
+}
+
+.emp-buttons button {
+  margin-left: 1rem;
+  padding: 0 1rem;
+  border: none;
+  color: white;
+}
+
+.edit {
+  background-color: navy;
+}
+
+.delete {
+  background-color: red;
+}
+
+.input-box {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.search-btns button {
+  background-color: navy;
+  color: white;
+  width: 10rem;
+}

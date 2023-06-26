@@ -1,0 +1,41 @@
+<ul *ngFor="let employee of employees">
+  <li>
+    {{ employee.empId }} {{ employee.empName }} {{ employee.designation }}
+    <span [ngSwitch]="employee.designation">
+      <ng-container *ngSwitchCase="'Developer'">6000</ng-container>
+      <ng-container *ngSwitchCase="'Sr.Developer'">8000</ng-container>
+      <ng-container *ngSwitchCase="'Tester'">6500</ng-container>
+      <ng-container *ngSwitchCase="'Architect'">10000</ng-container>
+      <ng-container *ngSwitchCase="'Contractor'">6000</ng-container>
+    </span>
+    {{ employee.empType }}
+
+    <span class="emp-buttons">
+      <button class="edit">Edit</button>
+      <button class="delete">Delete</button>
+    </span>
+  </li>
+</ul>
+
+<h1>Search Employee</h1>
+<div class="input-box">
+  <label>Employee Id</label>
+  <input type="text" name="empId" [(ngModel)]="searchInput" />
+</div>
+<div class="search-btns">
+  <button (click)="searchEmployee(searchInput)">Search</button>
+  <button (click)="clearSearch()">Clear</button>
+</div>
+
+<div *ngIf="searchedEmployee">
+  <h2>Employee Details</h2>
+  <p>Employee ID: {{ searchedEmployee.empId }}</p>
+  <p>Name: {{ searchedEmployee.empName }}</p>
+  <p>Designation: {{ searchedEmployee.designation }}</p>
+  <p>Salary: {{ searchedEmployee.salary }}</p>
+  <p>Employment Type: {{ searchedEmployee.empType }}</p>
+</div>
+
+<div *ngIf="!searchedEmployee">
+  <p>No employee found with the provided ID.</p>
+</div>
