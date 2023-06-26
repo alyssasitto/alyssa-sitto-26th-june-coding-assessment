@@ -32,7 +32,16 @@
   <p>Employee ID: {{ searchedEmployee.empId }}</p>
   <p>Name: {{ searchedEmployee.empName }}</p>
   <p>Designation: {{ searchedEmployee.designation }}</p>
-  <p>Salary: {{ searchedEmployee.salary }}</p>
+  <p>
+    Salary:
+    <span [ngSwitch]="searchedEmployee.designation">
+      <ng-container *ngSwitchCase="'Developer'">6000</ng-container>
+      <ng-container *ngSwitchCase="'Sr.Developer'">8000</ng-container>
+      <ng-container *ngSwitchCase="'Tester'">6500</ng-container>
+      <ng-container *ngSwitchCase="'Architect'">10000</ng-container>
+      <ng-container *ngSwitchCase="'Contractor'">6000</ng-container>
+    </span>
+  </p>
   <p>Employment Type: {{ searchedEmployee.empType }}</p>
 </div>
 
